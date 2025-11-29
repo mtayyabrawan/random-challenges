@@ -1,0 +1,126 @@
+@font-face {
+    font-family: "Golos";
+    src: url("/assets/fronts/golos_text/GolosText-VariableFont_wght.ttf")
+        format("TrueType");
+}
+
+:root {
+    --btn-rad: 1rem;
+}
+
+* {
+    font-family: Golos, Verdana, Geneva, Tahoma, sans-serif;
+    color-scheme: light dark;
+}
+
+body {
+    background-color: light-dark(white, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 270deg;
+    inherits: false;
+}
+
+.button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    cursor: pointer;
+    background: #ffffff;
+    border: none;
+    border-radius: calc(var(--btn-rad) + 0.35rem);
+    height: 4rem;
+    font-size: large;
+    padding: 0.35rem;
+    padding-left: 1.25rem;
+    outline: 1px solid #f6f6f69f;
+    text-wrap: nowrap;
+}
+
+p {
+    font-weight: 600;
+    background: linear-gradient(to bottom, #8d9199, #2c3543);
+    background-clip: text;
+    color: transparent;
+}
+
+span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--btn-rad);
+    padding-inline: 1.25rem;
+    height: 100%;
+    background: conic-gradient(
+        from var(--angle) at 50% 50%,
+        #ffea7a,
+        #ff8bd8,
+        #c18bff,
+        #8cb4ff,
+        #88ffe1,
+        #b4ff7d,
+        #ffea7a
+    );
+}
+
+svg {
+    z-index: 3;
+    height: 2rem;
+    width: fit-content;
+    fill: white;
+}
+
+span::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    border-radius: var(--btn-rad);
+    height: 140%;
+    width: 120%;
+    background: conic-gradient(
+            from var(--angle) at 50% 50%,
+            #ffeb7a59,
+            #ff8bd85e,
+            #c18bff81,
+            #8cb4ff79,
+            #88ffe18e,
+            #b3ff7d96,
+            #ffeb7a93
+        )
+        padding-box;
+    filter: blur(0.5rem);
+}
+
+span::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    border: 0.75px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--btn-rad);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.5),
+        inset 0 0 1.5rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.button:hover > span,
+.button:hover > span::before {
+    animation: button-hover 700ms linear infinite forwards;
+}
+
+@keyframes button-hover {
+    to {
+        --angle: 630deg;
+    }
+}
