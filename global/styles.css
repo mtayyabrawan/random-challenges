@@ -4,4 +4,5 @@
     box-sizing: border-box;
     user-select: none;
     scroll-behavior: smooth;
+    color-scheme: light dark;
 }
