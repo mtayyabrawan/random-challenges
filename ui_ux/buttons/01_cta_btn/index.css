@@ -1,0 +1,85 @@
+:root {
+    --primary-clr: white;
+    --secondary-clr: rgb(0, 0, 0);
+    --main-clr: rgb(233, 187, 37);
+    --pd-start: 2.25rem;
+    --pd-end: 0.5rem;
+    --main-rd: 0.25rem;
+    --border: 0.05rem;
+    --border-clr: rgb(54, 50, 50);
+    --box-width: 2em;
+    --box-height: 90%;
+    --box-left: 0.07rem;
+    --btn-bg: rgb(129, 117, 117);
+}
+* {
+    font-family: "Baloo 2", sans-serif;
+    transition: all 350ms ease-in-out;
+    color-scheme: dark light;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: light-dark(var(--primary-clr), var(--secondary-clr));
+    color: light-dark(var(--secondary-clr), var(--primary-clr));
+}
+
+button {
+    position: relative;
+    padding-inline: var(--pd-start) var(--pd-end);
+    outline: none;
+    border: var(--border) solid var(--border-clr);
+    border-radius: calc(var(--main-rd) + var(--box-left) + var(--border));
+    background-color: var(--btn-bg);
+    color: var(--primary-clr);
+    span {
+        font-size: larger;
+    }
+    cursor: pointer;
+    &:hover {
+        padding-inline: var(--pd-end) var(--pd-start);
+    }
+    &:hover #box {
+        left: calc(100% - var(--box-width) - var(--box-left));
+        transform: rotate(180deg);
+    }
+    #box {
+        position: absolute;
+        inset-block: calc((100% - var(--box-height)) / 2);
+        left: var(--box-left);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: var(--box-height);
+        width: var(--box-width);
+        background-color: var(--main-clr);
+        border-radius: var(--main-rd);
+        #arrow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            width: 70%;
+            height: 70%;
+            place-items: center;
+            .dot {
+                height: 80%;
+                width: 80%;
+                border-radius: 50%;
+                background-color: var(--primary-clr);
+                opacity: 0.25;
+            }
+            .filled {
+                opacity: 1;
+                animation: pulse linear 700ms infinite alternate-reverse;
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0.5;
+    }
+}
