@@ -81,7 +81,7 @@ body {
                 margin-top: var(--main-pd);
                 p {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: center;
                     align-items: center;
                     gap: 0.25rem;
                     font-size: smaller;
@@ -92,7 +92,7 @@ body {
                 }
                 button {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: center;
                     align-items: center;
                     gap: 0.5rem;
                     padding: var(--btn-pg);

@@ -1,0 +1,100 @@
+:root {
+    --primary-clr: white;
+    --secondary-clr: black;
+    --main-pd: 0.5rem;
+    --main-rd: 0.25rem;
+    --btn-pg: 0.5rem 0.75rem;
+}
+* {
+    font-family: sans-serif;
+    transition: all 350ms ease-in-out;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: light-dark(var(--primary-clr), var(--secondary-clr));
+    color: light-dark(var(--secondary-clr), var(--primary-clr));
+}
+
+#card {
+    width: 16rem;
+    padding: var(--main-pd);
+    border-radius: calc(var(--main-rd) + var(--main-pd));
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr);
+    #photo {
+        display: block;
+        width: 100%;
+        border-radius: var(--main-rd);
+        object-fit: cover;
+        object-position: top;
+        height: 12rem;
+    }
+    #info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--main-pd);
+        padding: var(--main-pd);
+        border-radius: var(--main-rd);
+        #name {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: large;
+            img {
+                height: 1rem;
+                border-radius: 50%;
+            }
+        }
+        #profile-info,
+        #description {
+            font-size: smaller;
+            font-weight: lighter;
+            line-height: 2.5ch;
+        }
+        #profile-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--main-pd);
+            p {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.25rem;
+                font-size: smaller;
+                svg {
+                    height: 1rem;
+                    fill: var(--secondary-clr);
+                }
+            }
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                padding: var(--btn-pg);
+                font-size: smaller;
+                font-weight: bold;
+                border: none;
+                border-radius: 5rem;
+                outline: none;
+                background-color: rgb(214, 210, 210);
+                color: var(--secondary-clr);
+                cursor: pointer;
+                img {
+                    height: 1rem;
+                }
+                &:hover,
+                &:focus-visible {
+                    background-color: var(--primary-clr);
+                }
+            }
+        }
+    }
+}
