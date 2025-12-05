@@ -57,6 +57,7 @@ body {
             img {
                 height: 0.65rem;
                 border-radius: 50%;
+                background: radial-gradient(white 50%, transparent 50%);
             }
         }
         #other {
@@ -78,6 +79,17 @@ body {
                 justify-content: space-between;
                 align-items: center;
                 margin-top: var(--main-pd);
+                p {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 0.25rem;
+                    font-size: smaller;
+                    svg {
+                        height: 1rem;
+                        fill: var(--primary-clr);
+                    }
+                }
                 button {
                     display: flex;
                     justify-content: space-between;
